@@ -3,7 +3,7 @@
 # Redovisningstexter
 
 ## Kmom01
-![image](https://github.com/Alshal25/python-moal25/blob/main/img.png)
+![image](https://github.com/Alshal25/python-moal25/blob/62dd44e20a41f034098985a7e22eb3dfd99999f8/image01.png)
 
 
 🎬 När jag började med kursens utvecklingsmiljö var det en helt ny upplevelse för mig. Jag har tidigare mest jobbat med C++ och Java, där fokus har legat på problemlösning, ofta i form av att skapa kod och spel. Att koppla ihop GitHub och Visual Studio Code var dock något jag aldrig gjort tidigare, även om jag har använt GitHub i grupparbeten för att pusha kod direkt till en gemensam hemsida.
