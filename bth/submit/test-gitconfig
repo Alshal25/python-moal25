@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# Test script to check git configuration for BTH course submission
+#
+
+# Check if git is installed
+if ! command -v git &> /dev/null; then
+    echo "❌ Git is not installed or not in PATH"
+    exit 1
+fi
+
+echo "🔍 Checking Git configuration..."
+
+# Check git user.name
+USER_NAME=$(git config --global user.name)
+if [ -z "$USER_NAME" ]; then
+    echo "❌ Git user.name is not configured"
+    echo "   Run: git config --global user.name \"Your Name\""
+    exit 1
+else
+    echo "✅ Git user.name: $USER_NAME"
+fi
+
+# Check git user.email
+USER_EMAIL=$(git config --global user.email)
+if [ -z "$USER_EMAIL" ]; then
+    echo "❌ Git user.email is not configured"
+    echo "   Run: git config --global user.email \"your.email@example.com\""
+    exit 1
+else
+    echo "✅ Git user.email: $USER_EMAIL"
+fi
+
+# Check if we're in a git repository
+if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+    echo "⚠️  Not inside a git repository"
+else
+    echo "✅ Inside git repository"
+    
+    # Show current branch
+    BRANCH=$(git branch --show-current 2>/dev/null)
+    if [ -n "$BRANCH" ]; then
+        echo "✅ Current branch: $BRANCH"
+    fi
+    
+    # Check if there are uncommitted changes
+    if ! git diff-index --quiet HEAD -- 2>/dev/null; then
+        echo "⚠️  You have uncommitted changes"
+        git status --porcelain
+    else
+        echo "✅ Working directory is clean"
+    fi
+fi
+
+echo "✅ Git configuration test completed successfully!"
