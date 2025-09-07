@@ -1,0 +1,23 @@
+{
+  "name": "python-moal25",
+  "version": "1.0.0",
+  "description": "![image](https://github.com/Alshal25/python-moal25/blob/62dd44e20a41f034098985a7e22eb3dfd99999f8/image01.png)",
+  "homepage": "https://github.com/Alshal25/python-moal25#readme",
+  "bugs": {
+    "url": "https://github.com/Alshal25/python-moal25/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alshal25/python-moal25.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

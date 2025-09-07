@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: python-moal25
+Version: 0.1.0
+Summary: Python course assignments for moal25
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: go-task-bin>=3.44
+Requires-Dist: python-tester>=3
+Requires-Dist: ruff>=0.12
+
+# python_aarstud
+
+# Redovisningstexter
+
+## Kmom01
+![image](https://github.com/Alshal25/python-moal25/blob/ed91ad064b2a872381b0dcb2b73bed4b33c1b078/img.png
+)
+
+
+    När jag började med kursens utvecklingsmiljö var det en helt ny upplevelse för mig. Jag har tidigare mest jobbat med C++ och Java, där fokus har legat på problemlösning, ofta i form av att skapa kod och spel. Att koppla ihop GitHub och Visual Studio Code var dock något jag aldrig gjort tidigare, även om jag har använt GitHub i grupparbeten för att pusha kod direkt till en gemensam hemsida.
+
+    Att arbeta i terminalen var också nytt för mig. Det kändes lite ovant i början, men jag har lärt mig en del av de grundläggande Unix-kommandona. Jag tror att det hade varit enklare om kursen nämnde verktyg som till exempel Warp, där man inte behöver installera Git och Python.
+
+    Installationen av utvecklingsmiljön gick okej, men det tog lite tid innan jag förstod hur allt hängde ihop. När det väl fungerade kändes det lättare att fortsätta.
+
+    Python är inte helt nytt för mig eftersom jag har läst programmering tidigare, men jag är fortfarande i början av att förstå hur jag kan använda språket mer effektivt.
+
+    Det svåraste konceptet i detta kursmoment var att förstå hur man strukturerar koden på ett bättre sätt. Jag känner fortfarande att jag inte alltid kan skriva den mest effektiva koden, men jag börjar få en bättre känsla för det.
+
+    Det jag tyckte var mest intressant i momentet var att lära mig mer om hur GitHub kan kopplas ihop med Visual Studio Code. Det var roligt att se hur arbetet blir mer organiserat och hur man lättare kan samarbeta och hålla ordning på sina projekt.
+
+    Om något kunde förbättras i kursen så vore det att ge fler tips på användbara verktyg och alternativa sätt att installera miljön, så att man får en smidigare start.
+
+    Min TIL från detta moment är framför allt att jag nu har kommit igång med terminalen och GitHub på ett nytt sätt, och att jag börjar vänja mig vid att arbeta mer med Python än tidigare
