@@ -25,7 +25,6 @@ jobs:
           echo "Student ID: ${{ vars.STUDENT_CANVAS_ID || '52009' }}"
           
   kmom03-test:
-    if: contains(github.head_ref, 'kmom03') || contains(github.ref, 'kmom03')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -40,8 +39,14 @@ jobs:
         run: |
           pip install python-tester
           
-      - name: Run kmom03 tests
+      - name: Detect branch and run tests
         run: |
+          echo "Detecting branch..."
+          echo "github.ref: ${{ github.ref }}"
+          echo "github.head_ref: ${{ github.head_ref }}"
+          echo "github.base_ref: ${{ github.base_ref }}"
+          
+          # Always run tests since this is kmom03 submission
           echo "Running all kmom03 tests..."
           echo "1. Testing structure..."
           python tests/kmom03/marvin2/test_1marvin2_structure.py
