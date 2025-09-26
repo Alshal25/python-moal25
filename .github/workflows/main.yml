@@ -23,6 +23,10 @@ jobs:
           echo "event_name: ${{ github.event_name }}"
           echo "pr_action: ${{ github.event.action || '' }}"
           echo "review_state: ${{ github.event.review.state || '' }}"
+          echo "Available assignments: '${{ vars.ASSIGNMENTS }}'"
+          echo "KMOM paths: '${{ vars.KMOM_PATHS }}'"
+          echo "Course ID: '${{ vars.COURSE_ID }}'"
+          echo "Student ID: '${{ vars.STUDENT_CANVAS_ID }}'"
   call-decider:
     uses: bth-python/utils/.github/workflows/decider.yml@main
     with:
@@ -30,8 +34,8 @@ jobs:
       event: ${{ toJson(github.event) }}
       pr_action: ${{ github.event.action || '' }}
       review_state: ${{ github.event.review.state || '' }}
-      course_id: ${{ vars.COURSE_ID }}
-      available_assignments: ${{ vars.ASSIGNMENTS }}
-      student_id: ${{ vars.STUDENT_CANVAS_ID }}
-      kmom_paths: ${{ vars.KMOM_PATHS }}
+      course_id: ${{ vars.COURSE_ID || 'python' }}
+      available_assignments: ${{ vars.ASSIGNMENTS || 'kmom01,kmom02,kmom03,kmom04,kmom05,kmom06,proj' }}
+      student_id: ${{ vars.STUDENT_CANVAS_ID || '52009' }}
+      kmom_paths: ${{ vars.KMOM_PATHS || 'kmom01=src/kmom01,kmom02=src/kmom02,kmom03=src/kmom03,kmom04=src/kmom04,kmom05=src/kmom05,kmom06=src/kmom06' }}
     secrets: inherit
