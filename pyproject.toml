@@ -1,7 +1,7 @@
 [project]
-name = "python-moal25"
+name = "python-abcd25"
 version = "0.1.0"
-description = "Python course assignments for moal25"
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
