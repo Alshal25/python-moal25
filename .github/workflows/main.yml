@@ -20,50 +20,18 @@ jobs:
           echo "github.head_ref: ${{ github.head_ref }}"
           echo "github.base_ref: ${{ github.base_ref }}"
           echo "github.event_name: ${{ github.event_name }}"
-          echo "Branch: ${{ github.head_ref || github.ref_name }}"
-          echo "Course ID: ${{ vars.COURSE_ID || 'python' }}"
-          echo "Student ID: ${{ vars.STUDENT_CANVAS_ID || '52009' }}"
-          
-  kmom03-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-          
-      - name: Install dependencies
-        run: |
-          pip install python-tester
-          
-      - name: Detect branch and run tests
-        run: |
-          echo "Detecting branch..."
-          echo "github.ref: ${{ github.ref }}"
-          echo "github.head_ref: ${{ github.head_ref }}"
-          echo "github.base_ref: ${{ github.base_ref }}"
-          
-          # Always run tests since this is kmom03 submission
-          echo "Running all kmom03 tests..."
-          echo "1. Testing structure..."
-          python tests/kmom03/marvin2/test_1marvin2_structure.py
-          echo "2. Testing marvin1 functions..."
-          python tests/kmom03/marvin2/test_2marvin1_functions.py || echo "Some marvin1 function tests had issues but continuing..."
-          echo "3. Testing marvin2 functions..."
-          python tests/kmom03/marvin2/test_3marvin2.py
-          echo "4. Testing main integration..."
-          python tests/kmom03/marvin2/test_4main.py
-          echo "5. Running extra tests..."
-          python tests/kmom03/marvin2/extra_test_marvin2.py || echo "Extra tests completed with some warnings..."
-          echo "All available kmom03 tests completed!"
-          
-      - name: Submit to Canvas
-        run: |
-          echo "Assignment: kmom03"
-          echo "Student ID: ${{ vars.STUDENT_CANVAS_ID || '52009' }}"
-          echo "Course: ${{ vars.COURSE_ID || 'python' }}"
-          echo "Status: PASS - All tests completed successfully"
-          echo "Submission would be sent to Canvas (simulated)"
+          echo "event_name: ${{ github.event_name }}"
+          echo "pr_action: ${{ github.event.action || '' }}"
+          echo "review_state: ${{ github.event.review.state || '' }}"
+  call-decider:
+    uses: bth-python/utils/.github/workflows/decider.yml@main
+    with:
+      event_name: ${{ github.event_name }}
+      event: ${{ toJson(github.event) }}
+      pr_action: ${{ github.event.action || '' }}
+      review_state: ${{ github.event.review.state || '' }}
+      course_id: ${{ vars.COURSE_ID }}
+      available_assignments: '{"bth/submit/kmom01":"kmom01","bth/submit/kmom02":"kmom02","bth/submit/kmom03":"kmom03","bth/submit/kmom04":"kmom04","bth/submit/kmom05":"kmom05","bth/submit/kmom06":"kmom06","bth/submit/proj":"proj"}'
+      student_id: ${{ vars.STUDENT_CANVAS_ID }}
+      kmom_paths: ${{ vars.KMOM_PATHS }}
+    secrets: inherit
