@@ -31,7 +31,7 @@ jobs:
       pr_action: ${{ github.event.action || '' }}
       review_state: ${{ github.event.review.state || '' }}
       course_id: ${{ vars.COURSE_ID }}
-      available_assignments: '{"bth/submit/kmom01":"kmom01","bth/submit/kmom02":"kmom02","bth/submit/kmom03":"kmom03","bth/submit/kmom04":"kmom04","bth/submit/kmom05":"kmom05","bth/submit/kmom06":"kmom06","bth/submit/proj":"proj"}'
+      available_assignments: ${{ vars.ASSIGNMENTS }}
       student_id: ${{ vars.STUDENT_CANVAS_ID }}
       kmom_paths: ${{ vars.KMOM_PATHS }}
     secrets: inherit
