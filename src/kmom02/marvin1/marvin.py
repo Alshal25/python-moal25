@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # Colors i found online to make it look nice
 RED = "\033[31m"
 WHITE = "\033[0m"
@@ -9,21 +8,16 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
-"""
-Marvin with a simple menu to start up with.
-Marvin doesnt do anything, just presents a menu with some choices.
-You should add functinoality to Marvin.
-"""
 
 marvin_image = r"""
                     ╔═════════════════════════════════╗
-                    ║          AI - BOOT v2.0         ║
+                    ║          AI - BOOT v1.0         ║
                     ╚═════════════════════════════════╝
                           ┌─────────────────────┐
                           │  ◉ SYSTEM ONLINE ◉  │
                           └─────────────────────┘
                                 ┌───┐   ┌───┐
-                                │ ● │   │ ● │
+                                 │ ● │   │ ● │
                                 └───┘   └───┘
                                  \\       /
                                   \\     /
@@ -44,13 +38,6 @@ marvin_image = r"""
                           │ ◈ │           │ ◈ │
                           ╰───╯           ╰───╯
 """
-
-"""
-Its an eternal loop, until q is pressed.
-It should check the choice done by the user and call a appropriate
-function.
-"""
-
 
 stop = False
 while not stop:
@@ -109,7 +96,8 @@ while not stop:
             print(f"{RED}Invalid input. Please enter numbers only.{WHITE}")
 
     elif choice == "4":
-        numbers = []  
+        previous_number = None
+        first_time = True
 
         while True:
             first_input = input("Feed me a number or write 'done': ")
@@ -124,17 +112,16 @@ while not stop:
                 print(f"That is not a valid number: {RED}{first_input}{WHITE} Please try again")
                 continue
 
-            if numbers:  
-                num2 = numbers[-1] 
-
-                if num > num2:
-                    print(f"{GREEN}{num} is larger! than {RED}{num2}{WHITE}")
-                elif num < num2:
-                    print(f"{RED}{num}{WHITE} is smaller! than {GREEN}{num2}")
+            if not first_time:
+                if num > previous_number:
+                    print(f"{GREEN}{num} is larger! than {RED}{previous_number}{WHITE}")
+                elif num < previous_number:
+                    print(f"{RED}{num}{WHITE} is smaller! than {GREEN}{previous_number}")
                 else:
-                    print(f"{YELLOW}{num} is the same! as {num2}{WHITE}")
-            
-            numbers.append(num)
+                    print(f"{YELLOW}{num} is the same! as {previous_number}{WHITE}")
+
+            previous_number = num
+            first_time = False
 
     elif choice == "5":
         user_input = input("Enter ssn to validate: ")

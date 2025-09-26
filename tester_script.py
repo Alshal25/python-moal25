@@ -11,13 +11,10 @@ def main():
     sys.path.insert(0, project_root)
     venv_packages = os.path.join(project_root, '.venv', 'lib', 'python3.13', 'site-packages')
     sys.path.insert(0, venv_packages)
-    
     # Change to project directory
     os.chdir(project_root)
-    
     # Import and use the tester functionality
     from tester import run
-    
     # Call the run function
     run()
 

@@ -2,7 +2,6 @@
 
 def main():
     print("Hello and welcome to the convert program")
-    
     # get the number from user
     user_input = input("Please enter a value to convert:")
     try:
@@ -14,7 +13,6 @@ def main():
     print("Choose what to convert:")
     print("P: Price, before --> after tax")
     print("S: Speed, km/h --> mph")
-    
     what_to_convert = input().upper()
 
     if what_to_convert == 'S':
